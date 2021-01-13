@@ -1,6 +1,4 @@
 //require modules
-const { urlencoded } = require('express');
-const e = require('express');
 const express = require('express');
 const logger = require('morgan');
 
@@ -10,12 +8,13 @@ const app = express();
 
 app.use(logger('dev'));
 
-app.use(urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(express.static('public'));
 
-require('./routes/htmlRoutes')(app);
+//html routes
+app.use(require('./routes/htmlRoutes'))
 
 app.listen(PORT, ()=>{
     console.log('this app is listening to port', PORT)
