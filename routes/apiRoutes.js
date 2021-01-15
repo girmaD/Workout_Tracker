@@ -10,9 +10,9 @@ router.get('/api/workouts', (req, res) => {
             }
         }
     ])
-    .then(workoutdb => {
-        console.log(workoutdb);
-        res.json(workoutdb);
+    .then(dbWorkout => {
+        console.log(dbWorkout);
+        res.json(dbWorkout);
     })
     .catch(err => {
          res.json(err);
@@ -55,8 +55,8 @@ router.get('/api/workouts/range', (req, res) => {
         },
         { $limit : 7 },
         {$sort: {day: 1}}        
-    ]).then(workout => {
-        res.json(workout);
+    ]).then(dbWorkout => {
+        res.json(dbWorkout);
       })
       .catch(err => {
         res.json(err);
