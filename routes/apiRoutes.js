@@ -1,7 +1,7 @@
 const router = require('express').Router()
-
 const db = require('../models');
 
+//a get route that retrieved all data in DB and additional field called totalDuration
 router.get('/api/workouts', (req, res) => {    
     db.Workout.aggregate([
         {
@@ -19,6 +19,7 @@ router.get('/api/workouts', (req, res) => {
     });
 });
 
+//a post route that posts req.body to the database and sends back a data that included the newly added data
 router.post('/api/workouts', ({body}, res) => {
     db.Workout.create(body)
     .then(dbWorkout => {
@@ -29,6 +30,8 @@ router.post('/api/workouts', ({body}, res) => {
     });
 });
 
+//this route finds data by matching id - then pushes the data in that array. It also increments 
+//totalDuration by the newly added duration data
 router.put('/api/workouts/:id', (req, res) => {
     db.Workout.findOneAndUpdate(
         { _id: req.params.id },
@@ -44,6 +47,7 @@ router.put('/api/workouts/:id', (req, res) => {
     });
 });
 
+//this route gets the last seven data sorted by day and adds additional field called totalDuration
 router.get('/api/workouts/range', (req, res) => {
     db.Workout.aggregate([
         {
