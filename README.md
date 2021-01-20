@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 * View the [Github Repo](https://github.com/girmaD/Workout_Tracker)
-* View the [Deployed Heroku link]()
+* View the [Deployed Heroku link](https://dry-taiga-52133.herokuapp.com/)
 
 
 ## Description
